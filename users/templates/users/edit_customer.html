@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Customer</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            font-size: small;
+            margin-bottom: 0.5rem;
+        }
+        .custom_create p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .custom_create p label {
+            flex: 0 0 25%;
+            /* Adjust the percentage according to your needs */
+            margin-bottom: 0;
+            /* Ensures label and input are aligned */
+            padding-right: 1rem;
+            /* Space between label and input */
+            text-align: right;
+            /* Align label text to the right */
+        }
+
+        .custom_create p input {
+            flex: 1;
+            text-align: left;
+            /* Align input text to the right */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="my-4 text-center">Edit Customer</h1>
+                <form method="post" class="bg-light p-4 rounded shadow-sm">
+                    <div class="custom_create">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

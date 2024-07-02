@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile and Customers</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-content {
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+
+        .card {
+            margin-top: 1rem;
+        }
+
+        label {
+            font-size: small;
+            margin-bottom: 0.5rem;
+        }
+
+        .custom_create p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .custom_create p label {
+            flex: 0 0 25%;
+            /* Adjust the percentage according to your needs */
+            margin-bottom: 0;
+            /* Ensures label and input are aligned */
+            padding-right: 1rem;
+            /* Space between label and input */
+            text-align: right;
+            /* Align label text to the right */
+        }
+
+        .custom_create p input {
+            flex: 1;
+            text-align: left;
+            /* Align input text to the right */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- Profile Section -->
+            <div class="col-md-12 form-content">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-header">
+                        <h3 class="font-weight-light my-4 text-center">My Profile</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <!-- Row 1 -->
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="small mb-1">Company Name</label>
+                                            </div>
+                                            <div class="col-6"> {{ profile_form.company_name }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="small mb-1">Address</label>
+                                            </div>
+                                            <div class="col-6"> {{ profile_form.address }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Row 2 -->
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="small mb-1">Postcode</label>
+                                            </div>
+                                            <div class="col-6"> {{ profile_form.postcode }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="small mb-1">City</label>
+                                            </div>
+                                            <div class="col-6"> {{ profile_form.city }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Row 3 -->
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="small mb-1">Chamber of Commerce Number</label>
+                                            </div>
+                                            <div class="col-6"> {{ profile_form.coc_number }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="small mb-1">IBAN/Bank Account Number</label>
+                                            </div>
+                                            <div class="col-6"> {{ profile_form.iban }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Row 4 -->
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="small mb-1">PEPPOL Sender ID</label>
+                                            </div>
+                                            <div class="col-6"> {{ profile_form.peppol_sender_id }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="small mb-1">First Name</label>
+                                            </div>
+                                            <div class="col-6"> {{ profile_form.first_name }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Row 5 -->
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="small mb-1">Last Name</label>
+                                            </div>
+                                            <div class="col-6"> {{ profile_form.last_name }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="small mb-1">Email Address</label>
+                                            </div>
+                                            <div class="col-6"> {{ profile_form.email_address }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-dark col-md-12" name="profile-submit">Save
+                                Profile</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer List Section -->
+            <div class="col-md-12 form-content">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-header">
+                        <h3 class="font-weight-light my-4 text-center">Customer List</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Company Name</th>
+                                        <th>Address</th>
+                                        <th>Postcode</th>
+                                        <th>City</th>
+                                        <th>PEPPOL Receiver ID</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for customer in customers %}
+                                    <tr>
+                                        <td>{{ customer.company_name }}</td>
+                                        <td>{{ customer.address }}</td>
+                                        <td>{{ customer.postcode }}</td>
+                                        <td>{{ customer.city }}</td>
+                                        <td>{{ customer.peppol_receiver_id }}</td>
+                                        <td>
+                                            <a href="{% url 'edit_customer' customer.pk %}"
+                                                class="btn btn-sm btn-primary">Edit</a>
+                                            <a href="{% url 'delete_customer' customer.pk %}"
+                                                class="btn btn-sm btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create Customer Section -->
+            <div class="col-md-12 form-content">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-header">
+                        <h3 class="font-weight-light my-4 text-center">Create Customer</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6 m-auto">
+                                <form method="post">
+                                    <div class="custom_create">
+                                        {% csrf_token %}
+                                        {{ customer_form.as_p }}
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-dark col-md-12" name="customer-submit">Create
+                            Customer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
